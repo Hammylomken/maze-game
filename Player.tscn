@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://btqvgv2b2hdbq"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_54k2p"]
+[ext_resource type="Texture2D" uid="uid://xovnn526iito" path="res://New Piskel (2) (1).png" id="1_mudcw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpky3"]
+size = Vector2(14, 26)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_54k2p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qpky3")
+
+[node name="NewPiskel(2)(1)" type="Sprite2D" parent="."]
+texture = ExtResource("1_mudcw")
+hframes = 2
+vframes = 2

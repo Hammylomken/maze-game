@@ -1,0 +1,155 @@
+[gd_scene load_steps=16 format=3 uid="uid://dmciq8rshdx02"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_agum7"]
+[ext_resource type="Texture2D" uid="uid://cayokcglapxcf" path="res://New Piskel (6) (1).png" id="1_q71nn"]
+[ext_resource type="Script" path="res://AnimationPlayer.gd" id="3_hgcdj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5e4ee"]
+size = Vector2(24, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j002i"]
+size = Vector2(24, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vy0x8"]
+size = Vector2(24.5, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1wdq"]
+size = Vector2(28, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uocni"]
+size = Vector2(18, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uoqde"]
+size = Vector2(18, 22)
+
+[sub_resource type="Animation" id="Animation_mw8q5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NewPiskel(6)(1):frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ddq3j"]
+resource_name = "down"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NewPiskel(6)(1):frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [7, 6]
+}
+
+[sub_resource type="Animation" id="Animation_41byq"]
+resource_name = "left"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NewPiskel(6)(1):frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 4]
+}
+
+[sub_resource type="Animation" id="Animation_mrfsy"]
+resource_name = "right"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NewPiskel(6)(1):frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_t6f86"]
+resource_name = "up"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NewPiskel(6)(1):frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sahmf"]
+_data = {
+"RESET": SubResource("Animation_mw8q5"),
+"down": SubResource("Animation_ddq3j"),
+"left": SubResource("Animation_41byq"),
+"right": SubResource("Animation_mrfsy"),
+"up": SubResource("Animation_t6f86")
+}
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_agum7")
+
+[node name="defalt" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3)
+shape = SubResource("RectangleShape2D_5e4ee")
+
+[node name="left face" type="CollisionShape2D" parent="."]
+position = Vector2(1, 3)
+shape = SubResource("RectangleShape2D_j002i")
+
+[node name="front face" type="CollisionShape2D" parent="."]
+position = Vector2(-1.25, 2)
+shape = SubResource("RectangleShape2D_vy0x8")
+
+[node name="attack" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_s1wdq")
+
+[node name="attack side" type="CollisionShape2D" parent="."]
+position = Vector2(3, 4)
+shape = SubResource("RectangleShape2D_uocni")
+
+[node name="attack right side" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 4)
+shape = SubResource("RectangleShape2D_uoqde")
+
+[node name="NewPiskel(6)(1)" type="Sprite2D" parent="."]
+texture = ExtResource("1_q71nn")
+hframes = 5
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sahmf")
+}
+script = ExtResource("3_hgcdj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

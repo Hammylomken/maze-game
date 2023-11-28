@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://7bxdcwmv363k"]
+
+[ext_resource type="Texture2D" uid="uid://bw8hrahawb2vy" path="res://New Piskel (4) (1).png" id="1_h6q4l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h8kp"]
+size = Vector2(25, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3t1o2"]
+size = Vector2(24, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7tj6"]
+size = Vector2(15, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0xsn"]
+size = Vector2(14, 21)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="defalt" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5h8kp")
+
+[node name="defalt down" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_3t1o2")
+
+[node name="defalt side" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_d7tj6")
+
+[node name="defalt side down" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_t0xsn")
+
+[node name="NewPiskel(4)(1)" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+texture = ExtResource("1_h6q4l")
+hframes = 3
+vframes = 3
+frame = 3

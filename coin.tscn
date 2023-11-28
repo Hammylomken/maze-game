@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnqhtlc4emb2o"]
+
+[ext_resource type="Texture2D" uid="uid://dnb0ihhf75jaw" path="res://New Piskel (7).png" id="1_lp70m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_an1lq"]
+height = 22.0
+
+[node name="Area2D" type="Area2D"]
+
+[node name="defalt" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_an1lq")
+
+[node name="NewPiskel(7)" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("1_lp70m")
+vframes = 2
+frame = 1
