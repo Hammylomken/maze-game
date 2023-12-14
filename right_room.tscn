@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bs2jy87fqky1e"]
+[gd_scene load_steps=26 format=3 uid="uid://bs2jy87fqky1e"]
 
 [ext_resource type="Texture2D" uid="uid://dj0e4ehpjghva" path="res://New Piskel (8).png" id="1_v6ct6"]
 [ext_resource type="Script" path="res://right_room.gd" id="1_wlic5"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dtbcq8atakc6i" path="res://Adown_end.tscn" id="18_nmauf"]
 [ext_resource type="PackedScene" uid="uid://bqrjmbnmixq8q" path="res://Atop_end.tscn" id="19_oaq4q"]
 [ext_resource type="PackedScene" uid="uid://duuhmnv7tsd3l" path="res://Amiddle.tscn" id="20_2vo4u"]
+[ext_resource type="Script" path="res://ProgressBar.gd" id="21_8n5t2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxpc6"]
 size = Vector2(17.5, 670)
@@ -2788,5 +2789,47 @@ position = Vector2(478, 488)
 
 [node name="Area2D20" parent="." instance=ExtResource("16_hrxky")]
 position = Vector2(573, 325)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.702
+anchor_top = 0.014
+anchor_right = 0.702
+anchor_bottom = 0.014
+offset_left = -101.704
+offset_top = -0.0720005
+offset_right = 0.295959
+offset_bottom = 36.928
+value = 100.0
+script = ExtResource("21_8n5t2")
+
+[node name="Area2D21" parent="." instance=ExtResource("17_y7ts6")]
+position = Vector2(73, 418)
+
+[node name="Area2D22" parent="." instance=ExtResource("17_y7ts6")]
+position = Vector2(115, 117)
+
+[node name="Area2D23" parent="." instance=ExtResource("17_y7ts6")]
+position = Vector2(250, 611)
+
+[node name="Area2D24" parent="." instance=ExtResource("17_y7ts6")]
+position = Vector2(626, 357)
+
+[node name="Area2D25" parent="." instance=ExtResource("17_y7ts6")]
+position = Vector2(829, 615)
+
+[node name="Area2D26" parent="." instance=ExtResource("17_y7ts6")]
+position = Vector2(884, 76)
+
+[node name="Area2D27" parent="." instance=ExtResource("17_y7ts6")]
+position = Vector2(304, 130)
+
+[node name="Area2D28" parent="." instance=ExtResource("17_y7ts6")]
+position = Vector2(301, 413)
+
+[node name="Area2D29" parent="." instance=ExtResource("17_y7ts6")]
+position = Vector2(689, 186)
 
 [connection signal="body_entered" from="left_side" to="." method="_on_left_side_body_entered"]
